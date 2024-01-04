@@ -5,7 +5,6 @@ import { ApolloServer } from "apollo-server";
 import { UserResolver } from "./resolvers/UserResolver";
 import { MessageResolver } from "./resolvers/MessageResolver";
 
-
 async function main() {
   const schema = await buildSchema({
     resolvers: [UserResolver, MessageResolver],
