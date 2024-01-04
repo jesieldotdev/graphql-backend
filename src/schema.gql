@@ -17,6 +17,7 @@ type Mutation {
 }
 
 type Query {
+  getUserById(userId: String!): User!
   messages: [Message!]!
   users: [User!]!
 }

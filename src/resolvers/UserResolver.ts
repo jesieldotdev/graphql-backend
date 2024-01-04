@@ -68,4 +68,15 @@ export class UserResolver {
     }
     return user;
   }
+
+  @Query(() => User)
+  async getUserById(@Arg("userId") userId: string) {
+    const user = await UserDB.findById(userId);
+
+    try {
+    } catch (error) {
+      console.log(error);
+    }
+    return user;
+  }
 }
