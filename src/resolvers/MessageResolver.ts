@@ -7,7 +7,6 @@ import { Message } from "../models/Message/Message";
 import messageDB from "../models/Message/message.model";
 import { serveDataAsRest } from "../rest";
 
-
 async function data() {
   // const MessageDB = await messageDB.find({});
   // serveDataAsRest(MessageDB);
@@ -31,21 +30,68 @@ export class MessageResolver {
   }
 
   @Mutation(() => Message)
-  async createMessage(@Arg("text") text: string, @Arg("author") author: string) {
+  async createMessage(
+    @Arg("text") text: string,
+    @Arg("author") author: string
+  ) {
     const data = {
       id: randomUUID(),
       text: text,
-      author: author
+      author: author,
     };
 
     const message = new messageDB(data);
 
     try {
       message.save();
+      return message;
     } catch (error) {
       console.log(error);
     }
-    return message;
   }
 
+  @Mutation(() => Message)
+  async updateMessage(
+    @Arg("messageId") messageId: string,
+    @Arg("author") author: string,
+    @Arg("text") text: string
+  ) {
+    const data = {
+      text: text,
+      author: author,
+    };
+
+    const message = await messageDB.findByIdAndUpdate(messageId, data, {
+      new: true,
+    });
+
+    try {
+      return message;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  @Mutation(() => Message)
+  async deleteMessage(@Arg("messageId") messageId: string) {
+    const message = await messageDB.findByIdAndDelete(messageId);
+
+    try {
+      return message;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  @Query(() => Message)
+  async getMessageById(@Arg("messageId") messageIdId: string) {
+    const message = await messageDB.findById(messageIdId);
+    console.log(message)
+
+    try {
+      return message;
+    } catch (error) {
+      console.log(error);
+    }
+  }
 }
