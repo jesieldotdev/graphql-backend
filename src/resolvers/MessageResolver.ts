@@ -86,7 +86,6 @@ export class MessageResolver {
   @Query(() => Message)
   async getMessageById(@Arg("messageId") messageIdId: string) {
     const message = await messageDB.findById(messageIdId);
-    console.log(message)
 
     try {
       return message;
