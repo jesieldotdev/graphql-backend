@@ -4,8 +4,8 @@
   "description": "",
   "main": "server.ts",
   "scripts": {
-    "dev": "tsnd --respawn --transpile-only server.ts",
-    "start": "nodemon server.ts"
+    "dev:type": "tsnd --respawn --transpile-only server.ts",
+    "dev": "nodemon server.ts"
   },
   "keywords": [],
   "author": "",
