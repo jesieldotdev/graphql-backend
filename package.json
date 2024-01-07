@@ -2,10 +2,10 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "",
-  "main": "src/server.ts",
+  "main": "server.ts",
   "scripts": {
-    "dev": "tsnd --respawn --transpile-only src/server.ts",
-    "start": "nodemon src/server.ts"
+    "dev": "tsnd --respawn --transpile-only server.ts",
+    "start": "nodemon server.ts"
   },
   "keywords": [],
   "author": "",

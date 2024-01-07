@@ -2,8 +2,8 @@ import "reflect-metadata";
 import path from "node:path";
 import { buildSchema } from "type-graphql";
 import { ApolloServer } from "apollo-server";
-import { UserResolver } from "./resolvers/UserResolver";
-import { MessageResolver } from "./resolvers/MessageResolver";
+import { UserResolver } from "./src/resolvers/UserResolver";
+import { MessageResolver } from "./src/resolvers/MessageResolver";
 
 async function main() {
   const schema = await buildSchema({
