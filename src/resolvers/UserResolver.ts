@@ -3,7 +3,6 @@ import { Resolver, Query, Mutation, Arg } from "type-graphql";
 import { User } from "../models/User/User";
 import db from "../config/mongodb";
 import UserDB from "../models/User/userdb.model";
-import { serveDataAsRest } from "../rest";
 
 async function data() {
   return await db();

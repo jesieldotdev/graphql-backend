@@ -5,11 +5,8 @@ import db from "../config/mongodb";
 import UserDB from "../models/User/userdb.model";
 import { Message } from "../models/Message/Message";
 import messageDB from "../models/Message/message.model";
-import { serveDataAsRest } from "../rest";
 
 async function data() {
-  // const MessageDB = await messageDB.find({});
-  // serveDataAsRest(MessageDB);
   return await db();
 }
 
